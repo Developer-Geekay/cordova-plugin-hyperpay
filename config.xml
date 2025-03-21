@@ -1,11 +1,28 @@
-<?xml version='1.0' encoding='utf-8'?>
-<widget id="com.dignet.hyperpay" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<plugin id="cordova-plugin-hyperpay" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>HyperPay</name>
-    <description>Sample Apache Cordova App</description>
-    <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
-        Apache Cordova Team
-    </author>
-    <content src="index.html" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
-</widget>
+    <js-module src="www/hyperpay.js" name="HyperPay">
+        <clobbers target="cordova.plugins.HyperPay" />
+    </js-module>
+
+    <!-- Android Platform -->
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <feature name="HyperPay">
+                <param name="android-package" value="com.hyperpay.plugin.HyperPay"/>
+            </feature>
+        </config-file>
+        <source-file src="src/android/com/hyperpay/plugin/HyperpayPlugin.kt" target-dir="src/com/hyperpay/plugin" />
+        <framework src="src/android/com/hyperpay/plugin/build.gradle" custom="true" />
+    </platform>
+
+    <!-- iOS Platform -->
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="HyperPay">
+                <param name="ios-package" value="HyperPay" />
+            </feature>
+        </config-file>
+        <source-file src="src/ios/HyperPay.swift" />
+        <framework src="src/ios/Frameworks/OPPWAMobile.framework" custom="true" />
+    </platform>
+</plugin>

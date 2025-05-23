@@ -1,7 +1,17 @@
-var HyperPay = {
-    startPayment: function(amount, success, error) {
-        cordova.exec(success, error, "HyperPay", "startPayment", [amount]);
-    }
+var exec = require("cordova/exec");
+
+exports.setup = function (options, success, error) {
+  cordova.exec(success, error, "HyperPay", "setup", [options]);
 };
 
-module.exports = HyperPay;
+exports.checkout = function (options, success, error) {
+  cordova.exec(success, error, "HyperPay", "checkout", [options]);
+};
+
+exports.getPaymentStatus = function (options, success, error) {
+  cordova.exec(success, error, "HyperPay", "getPaymentStatus", [options]);
+};
+
+exports.applePay = function (params, success, error) {
+  cordova.exec(success, error, "HyperPay", "applePay", [params]);
+};

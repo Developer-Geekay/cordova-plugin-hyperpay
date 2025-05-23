@@ -5,6 +5,6 @@
   "main": "www/hyperpay.js",
   "scripts": {},
   "keywords": ["cordova", "plugin", "hyperpay"],
-  "author": "Your Name",
+  "author": "Gokula Kannan",
   "license": "MIT"
 }
